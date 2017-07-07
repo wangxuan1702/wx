@@ -1,0 +1,13 @@
+<ion-view view-title="详情">
+  <ion-nav-buttons side="right">
+    <button side="right" ng-click="show()" class="button button-icon icon ion-ios-redo"></button>
+  </ion-nav-buttons>
+  <ion-content class="padding">
+    <div style="width: 100%; text-align: center;">
+      <img ng-src="{{ songImg }}" id="img" style="border-radius: 50%;">
+      <h2>{{ singerName }}</h2>
+      <p>{{ songName }}</p>
+      <audio ng-src="{{ songUrl | trusted }}" controls id="audio"></audio>
+    </div>
+  </ion-content>
+</ion-view>

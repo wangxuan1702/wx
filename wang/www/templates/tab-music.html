@@ -1,0 +1,30 @@
+<ion-view view-title="音乐">
+  <ion-scroll class="bar bar-subheader" direction="x" scrollbar-x="false">
+    <div class="row">
+      <button  class="col col-20 button button-clear button-dark" ng-click="changeMusic(3)">欧美</button>
+      <button  class="col col-20 button button-clear button-dark" ng-click="changeMusic(4)">流行</button>
+      <button  class="col col-20 button button-clear button-dark" ng-click="changeMusic(5)">内地</button>
+      <button  class="col col-20 button button-clear button-dark" ng-click="changeMusic(6)">港台</button>
+      <button  class="col col-20 button button-clear button-dark" ng-click="changeMusic(16)">韩国</button>
+      <button  class="col col-20 button button-clear button-dark" ng-click="changeMusic(17)">日本</button>
+      <button  class="col col-20 button button-clear button-dark" ng-click="changeMusic(26)">热歌</button>
+      <button  class="col col-20 button button-clear button-dark" ng-click="changeMusic(27)">新歌</button>
+      <button  class="col col-20 button button-clear button-dark" ng-click="changeMusic(28)">音乐人</button>
+      <button  class="col col-20 button button-clear button-dark" ng-click="changeMusic(32)">网络</button>
+      <button  class="col col-20 button button-clear button-dark" ng-click="changeMusic(36)">K歌</button>
+    </div>
+  </ion-scroll>
+  <button class="bar bar-subheader " ng-click="scrollTop()" style="width: 50px;height: 50px;border-radius: 50%;background-color: #19fc9c;top: 500px;left: 300px;">返回顶部</button>
+  <ion-content delegate-handle="xxx" scrollbar-y="false" on-scroll="onScroll()" class="has-subheader">
+    <ion-list>
+      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="ele in musicData" ng-click="goMusicDetail($index)">
+        <img ng-src="{{ ele.albumpic_small }}">
+        <h2>{{ ele.singername }}</h2>
+        <p>{{ ele.songname }}</p>
+        <i class="icon ion-chevron-right icon-accessory"></i>
+
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>
+

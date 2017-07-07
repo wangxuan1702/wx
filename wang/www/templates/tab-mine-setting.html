@@ -1,0 +1,30 @@
+<ion-view title="我的设置">
+  <ion-content class="padding has-header">
+    <ul class="list">
+    
+      <li class="item item-toggle">
+        仅WiFi联网
+        <label class="toggle toggle-assertive">
+          <input type="checkbox">
+          <div class="track">
+            <div class="handle"></div>
+          </div>
+        </label>
+      </li>
+      <li class="item item-toggle">
+        自动清理缓存
+        <label class="toggle toggle-positive">
+          <input type="checkbox">
+          <div class="track">
+            <div class="handle"></div>
+          </div>
+        </label>
+      </li>
+      <li class="item range range-positive">
+        <i class="icon ion-ios-sunny-outline"></i>
+        <input type="range" name="volume" min="0" max="100" value="{{ 10 }}" ng-change="mine.changeVal()" ng-model="mine.value">
+        <i class="icon ion-ios-sunny"></i>
+      </li>
+    </ul>
+  </ion-content>
+</ion-view>

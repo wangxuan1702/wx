@@ -1,0 +1,12 @@
+<ion-view title="我的收藏">
+  <ion-content class="has-header padding">
+    <div class="list">
+    
+      <li class="item item-avatar" ng-repeat="ele in collectionData" ng-click="play($index)">
+        <img ng-src="{{ ele.songImg }}">
+        <h2>{{ ele.singerName }}</h2>
+        <p>{{ ele.songName }}</p>
+      </li>
+    </div>
+  </ion-content>
+</ion-view>

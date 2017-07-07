@@ -1,0 +1,125 @@
+<ion-view view-title="{{name + '新闻'}} " >
+
+  <div class="tabs-striped tabs-top">
+      <div class="tabs" id="tab1">
+        <div class="tab-item" ng-repeat="title in urlArray" ng-click="changeDash($index)">
+          {{title.name}}
+        </div>
+      </div>
+  </div>
+  <button class="bar bar-subheader " ng-click="scrollTop()" style="width: 50px;height: 50px;border-radius: 50%;background-color: #19fc9c;top: 500px;left: 300px;">返回顶部</button>
+  <ion-content class="has-subheader padding" >
+    <!--下拉刷新-->
+    <ion-refresher pulling-text="下拉刷新" on-refresh="doRefresh()"></ion-refresher>
+    <ion-list>
+      <ion-item ng-repeat="item in items" ng-bind="item.name"></ion-item>
+    </ion-list>
+
+    <!--旅游-->
+      <div ng-if=" data[0].tname == '旅游' " id="ly" >
+        <div ng-repeat=" ele in data" ng-click="goNewsDetail($index)">
+          <div ng-if="ele.order" class="style1">
+            <!--<a href="{{ele.url}}">-->
+              <img ng-src="{{ ele.imgsrc }}">
+              <h2>{{ele.title}}</h2>
+            <!--</a>-->
+          </div>
+          <div ng-if="ele.imgextra" class="style2">
+            <!--<a href="{{ ele.url }}">-->
+              <h2 style="clear: both;"> {{ ele.title }} </h2>
+              <img ng-src="{{ ele.imgextra[0].imgsrc }}" >
+              <img ng-src="{{ ele.imgextra[1].imgsrc }}" >
+              <img ng-src="{{ ele.imgsrc }}" >
+            <!--</a>-->
+            <span style="float:right;padding-right: 10px;">{{ ele.ptime }}</span>
+          </div>
+        </div>
+      </div>
+
+    <!--健康-->
+    <div ng-if=" data[0].tname == '健康' " id="jk">
+      <div ng-repeat=" ele in data" ng-click="goNewsDetail($index)">
+        <div  class="style3">
+          <!--<a href="{{ ele.url }}">-->
+            <div>
+              <img ng-src=" {{ ele.imgsrc }} ">
+            </div>
+            <div>
+              <h2>{{ ele.title }}</h2>
+              <br>
+              <span>{{ ele.source }}</span>
+            </div>
+          <!--</a>-->
+        </div>
+      </div>
+
+    </div>
+
+    <!--时尚-->
+    <div ng-if=" data[0].tname == '时尚' " id="ss">
+      <div ng-repeat=" ele in data" ng-click="goNewsDetail($index)">
+
+        <div ng-if="ele.order" class="style1">
+          <!--<a href="{{ele.url}}">-->
+            <img ng-src="{{ ele.imgsrc }}" style="width: 98%;height: 135px;">
+            <h2>{{ele.title}}</h2>
+          <!--</a>-->
+        </div>
+        <div ng-if="ele.imgextra" class="style2">
+          <!--<a href="{{ ele.url }}">-->
+            <h2> {{ ele.title }} </h2>
+            <img ng-src="{{ ele.imgextra[0].imgsrc }}" >
+            <img ng-src="{{ ele.imgextra[1].imgsrc }}" >
+            <img ng-src="{{ ele.imgsrc }}" >
+          <!--</a>-->
+          <span style="float:right;padding-right: 10px;">{{ ele.ptime }}</span>
+        </div>
+
+      </div>
+    </div>
+
+    <!--漫画-->
+    <div ng-if=" data[0].tname == '漫画' " id="mh">
+      <div ng-repeat=" ele in data " ng-click="goNewsDetail($index)">
+        <!--<a href="{{ele.url}}">-->
+          <h2>{{ele.title}}</h2>
+          <img ng-src="{{ ele.imgsrc }}">
+        <!--</a>-->
+      </div>
+    </div>
+
+
+
+
+    <!--数码-->
+    <div ng-if=" data[0].tname == '数码' " id="sm">
+      <div ng-repeat=" ele in data" ng-click="goNewsDetail($index)">
+
+        <div  class="style3">
+          <!--<a href="{{ ele.url }}">-->
+            <div>
+              <img ng-src=" {{ ele.imgsrc }} ">
+            </div>
+            <div>
+              <h2>{{ ele.title }}</h2>
+              <span>{{ ele.source }}</span>
+            </div>
+          <!--</a>-->
+        </div>
+      </div>
+    </div>
+
+    <!--上拉加载更多-->
+    <!--
+        ng-if  值 布尔型，如果为true，则可以触发上拉事件
+        on-infinite 上拉时触发的事件
+        distance 列表底部滚动到可触发上拉事件的距离，默认为1%
+        icon 加载时显示的加载图标，默认为 'ion-loading-d'
+    -->
+    <ion-infinite-scroll on-infinite="loadMore()" immediate-check="false" distance="1%">
+    </ion-infinite-scroll>
+
+  </ion-content>
+
+
+</ion-view>

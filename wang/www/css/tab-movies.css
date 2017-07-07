@@ -1,0 +1,21 @@
+#videoContent{
+  background-color: #eee;
+}
+.videoTitle>img{
+  height:45px;
+  border-radius: 50%;
+}
+.videoTitle>span{
+  vertical-align: top;
+  line-height: 45px;
+}
+h2{
+  font-size: 20px;
+  margin-top: 0px;
+}
+.videoDiv{
+  width:100%;
+}
+.videoDiv>video{
+  width:100%;
+}

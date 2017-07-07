@@ -1,0 +1,35 @@
+<ion-view view-title="视频">
+  <button class="bar bar-subheader " ng-click="scrollTop()" style="width: 50px;height: 50px;border-radius: 50%;background-color: #19fc9c;top: 500px;left: 300px;">返回顶部</button>
+  <ion-content class="padding" id="videoContent">
+      <div ng-repeat=" ele in videoData">
+        <div class="videoTitle">
+          <img ng-src="{{ ele.profile_image }}" >
+          <span>{{ ele.name }}</span>
+        </div>
+        <h2>{{ ele.text }}</h2>
+        <div class="videoDiv">
+          <video ng-src="{{ ele.video_uri | trusted }}" controls></video>
+        </div>
+        <div style="margin:20px 0; height:1px; background-color: #ccc;"></div>
+        <!--<div>-->
+          <!--<ion-row>-->
+            <!--<ion-col>-->
+              <!--<button ion-button icon-left clear small>-->
+                <!--<ion-icon name="thumbs-up"></ion-icon>-->
+                <!--<div>{{ ele.love }}</div>-->
+              <!--</button>-->
+            <!--</ion-col>-->
+            <!--<ion-col>-->
+              <!--<button ion-button icon-left clear small>-->
+                <!--<ion-icon name="text"></ion-icon>-->
+                <!--<div>{{ ele.hate }}</div>-->
+              <!--</button>-->
+            <!--</ion-col>-->
+           <!---->
+          <!--</ion-row>-->
+        <!--</div>-->
+      </div>
+    <ion-infinite-scroll on-infinite="loadMore()" immediate-check="false" distance="1%">
+    </ion-infinite-scroll>
+  </ion-content>
+</ion-view>

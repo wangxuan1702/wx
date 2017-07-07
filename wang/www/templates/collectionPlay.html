@@ -1,0 +1,16 @@
+<ion-view title="{{ singerName }}">
+  <button ion-button color="light" icon-left>
+    <ion-icon name='arrow-back'></ion-icon>
+    Back
+  </button>
+  <ion-content class="padding">
+    <div style="width: 100%; text-align: center;">
+      <img ng-src="{{ songImg }}" id="img" style="border-radius: 50%;">
+      <h2>{{ singerName }}</h2>
+      <p>{{ songName }}</p>
+      <audio ng-src="{{ songUrl | trusted }}" controls id="audio"></audio>
+    </div>
+    <br>
+    <br>
+  </ion-content>
+</ion-view>

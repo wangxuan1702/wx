@@ -1,0 +1,11 @@
+<ion-view title="新闻详情">
+    <ion-content class="padding">
+        <h2 style="text-align: center">{{ newsDetailData.title }}</h2>
+        <em style="float: right; padding-right: 10px;"> {{ "关键词："+newsDetailData.dkeys }} </em>
+       <br>
+      <img style="width: 100%;" src="{{newsDetailData.img[0].src}}" alt="">
+        <div ng-bind-html=" newsDetailData.body " style="clear:both;">
+        
+        </div>
+    </ion-content>
+</ion-view>
